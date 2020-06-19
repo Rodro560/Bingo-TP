@@ -19,7 +19,7 @@ int main()
 
 void dibujarCarton(int v[3][5])
 {
-    printf("________________\n");
+    printf("------------------\n");
 
     for(int i = 0; i < 3; i++)
     {
