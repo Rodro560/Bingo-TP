@@ -19,15 +19,19 @@ int main()
 
 void dibujarCarton(int v[3][5])
 {
-    printf("_______\n");
+    printf("________________\n");
 
     for(int i = 0; i < 3; i++)
     {
-        printf("|");
+        printf("| ");
 
         for (int j = 0; j < 5; j++)
         {
-            printf("%d", v[i][j]);
+            if (v[i][j] < 10)//si es menor a 10 dibujamos un 0 para que todos los numeros tengan 2 cifras
+            {
+                printf("0");
+            }
+            printf("%d ", v[i][j]);
         }
         printf("|\n");
     }
