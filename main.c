@@ -9,6 +9,7 @@ void asignarCarton(int v[3][5]);
 int main()
 {
     srand(time(0));
+    //todo lo del main es de prueba por ahora, falta el menú
     int carton1[3][5];
 
     asignarCarton(carton1);
