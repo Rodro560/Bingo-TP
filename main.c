@@ -3,7 +3,7 @@
 #include <time.h>
 #include "funciones.h"
 
-void dibujarCarton(int v[3][5]);
+void dibujarCarton(int v[3][5], int num);
 void asignarCarton(int v[3][5]);
 
 int main()
@@ -13,13 +13,15 @@ int main()
     int carton1[3][5];
 
     asignarCarton(carton1);
-    dibujarCarton(carton1);
+    dibujarCarton(carton1, 1);
 
     return 0;
 }
 
-void dibujarCarton(int v[3][5])
+void dibujarCarton(int v[3][5], int num)
 {
+    printf("------------------\n");
+    printf("|    CARTON %d    |\n", num);
     printf("------------------\n");
 
     for(int i = 0; i < 3; i++)
@@ -36,6 +38,7 @@ void dibujarCarton(int v[3][5])
         }
         printf("|\n");
     }
+    printf("------------------\n");
 }
 
 void asignarCarton(int v[3][5])
