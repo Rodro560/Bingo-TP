@@ -39,15 +39,13 @@ void cargarVectorConAleatoriosSinRepetir(int v[], int tam, int mini, int maxi)
 void asignarCarton(int v[3][5])
 {
     int tempvector[15];
-    int contador = 0;
     cargarVectorConAleatoriosSinRepetir(tempvector,15,1,90);
 
     for(int i = 0; i < 3; i++)
     {
         for (int j = 0; j < 5; j++)
         {
-            v[i][j] = tempvector[contador];
-            contador++;
+            v[i][j] = tempvector[i*5 + j];
         }
 
     }
