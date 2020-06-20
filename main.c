@@ -35,16 +35,16 @@ int main()
                dibujarCarton(carton1, 1);
 
                asignarCarton(carton2);
-               dibujarCarton(carton2, 1);break;
+               dibujarCarton(carton2, 2);break;
 
                case 3:asignarCarton(carton1);
                dibujarCarton(carton1, 1);
 
                asignarCarton(carton2);
-               dibujarCarton(carton2, 1);
+               dibujarCarton(carton2, 2);
 
                asignarCarton(carton3);
-               dibujarCarton(carton3, 1);break;
+               dibujarCarton(carton3, 3);break;
 
                case 0:break;
 
@@ -62,16 +62,16 @@ int main()
                dibujarCarton(carton1, 1);
 
                asignarCarton(carton2);
-               dibujarCarton(carton2, 1);break;
+               dibujarCarton(carton2, 2);break;
 
                case 3:asignarCarton(carton1);
                dibujarCarton(carton1, 1);
 
                asignarCarton(carton2);
-               dibujarCarton(carton2, 1);
+               dibujarCarton(carton2, 2);
 
                asignarCarton(carton3);
-               dibujarCarton(carton3, 1);break;
+               dibujarCarton(carton3, 3);break;
 
                case 0:break;
 
@@ -82,3 +82,4 @@ int main()
 
     return 0;
 }
+
