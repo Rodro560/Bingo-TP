@@ -38,25 +38,37 @@ void cargarVectorConAleatoriosSinRepetir(int v[], int tam, int mini, int maxi)
     }
 }
 
-void asignarCarton(int v[FILAS][COLUMNAS])
+void asignarCartones(int v[MAXCARTONES][FILAS][COLUMNAS], int cant)
 {
-    int tempvector[FILAS*COLUMNAS];
-    cargarVectorConAleatoriosSinRepetir(tempvector,FILAS*COLUMNAS,1,90);
 
-    for(int i = 0; i < FILAS; i++)
+    for (int i = 0; i < cant; i++)
     {
-        for (int j = 0; j < COLUMNAS; j++)
-        {
-            v[i][j] = tempvector[i*COLUMNAS + j];
-        }
+        int tempvector[FILAS*COLUMNAS];
+        cargarVectorConAleatoriosSinRepetir(tempvector,FILAS*COLUMNAS,1,90);
 
+        for(int j = 0; j < FILAS; j++)
+        {
+            for (int k = 0; k < COLUMNAS; k++)
+            {
+                v[i][j][k] = tempvector[j*COLUMNAS + k];
+            }
+
+        }
     }
 }
 
-void dibujarCarton(int v[FILAS][COLUMNAS], int num)
+void dibujarCartones(int v[MAXCARTONES][FILAS][COLUMNAS], int cant)
+{
+    for (int i = 0; i< cant; i++)
+    {
+        dibujarCarton(v,i);
+    }
+}
+
+void dibujarCarton(int v[MAXCARTONES][FILAS][COLUMNAS], int num)
 {
     printf("------------------\n");
-    printf("|    CARTON %d    |\n", num);
+    printf("|    CARTON %d    |\n", num + 1);
     printf("------------------\n");
 
     for(int i = 0; i < FILAS; i++)
@@ -65,14 +77,13 @@ void dibujarCarton(int v[FILAS][COLUMNAS], int num)
 
         for (int j = 0; j < COLUMNAS; j++)
         {
-            if (v[i][j] < 10)//si es menor a 10 dibujamos un 0 para que todos los numeros tengan 2 cifras
+            if (v[num][i][j] < 10)//si es menor a 10 dibujamos un 0 para que todos los numeros tengan 2 cifras
             {
                 printf("0");
             }
-            printf("%d ", v[i][j]);
+            printf("%d ", v[num][i][j]);
         }
         printf("|\n");
     }
     printf("------------------\n");
 }
-
