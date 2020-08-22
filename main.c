@@ -7,7 +7,7 @@
 int main()
 {
     srand(time(0));
-    int cantCarton, tipoCarton, carton1[3][5],carton2[3][5],carton3[3][5];
+    int cantCarton, tipoCarton, carton1[3][COLUMNAS],carton2[3][COLUMNAS],carton3[3][COLUMNAS];
 
     do
     {

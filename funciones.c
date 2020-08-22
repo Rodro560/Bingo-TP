@@ -1,3 +1,5 @@
+#include "funciones.h"
+
 int aleatorioEntre(int mini, int maxi)
 {
     return mini + rand()%(maxi-mini+1);
@@ -36,32 +38,32 @@ void cargarVectorConAleatoriosSinRepetir(int v[], int tam, int mini, int maxi)
     }
 }
 
-void asignarCarton(int v[3][5])
+void asignarCarton(int v[FILAS][COLUMNAS])
 {
-    int tempvector[15];
-    cargarVectorConAleatoriosSinRepetir(tempvector,15,1,90);
+    int tempvector[FILAS*COLUMNAS];
+    cargarVectorConAleatoriosSinRepetir(tempvector,FILAS*COLUMNAS,1,90);
 
-    for(int i = 0; i < 3; i++)
+    for(int i = 0; i < FILAS; i++)
     {
-        for (int j = 0; j < 5; j++)
+        for (int j = 0; j < COLUMNAS; j++)
         {
-            v[i][j] = tempvector[i*5 + j];
+            v[i][j] = tempvector[i*COLUMNAS + j];
         }
 
     }
 }
 
-void dibujarCarton(int v[3][5], int num)
+void dibujarCarton(int v[FILAS][COLUMNAS], int num)
 {
     printf("------------------\n");
     printf("|    CARTON %d    |\n", num);
     printf("------------------\n");
 
-    for(int i = 0; i < 3; i++)
+    for(int i = 0; i < FILAS; i++)
     {
         printf("| ");
 
-        for (int j = 0; j < 5; j++)
+        for (int j = 0; j < COLUMNAS; j++)
         {
             if (v[i][j] < 10)//si es menor a 10 dibujamos un 0 para que todos los numeros tengan 2 cifras
             {
