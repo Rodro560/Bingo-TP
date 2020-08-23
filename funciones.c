@@ -88,6 +88,27 @@ void dibujarCarton(int v[MAXCARTONES][FILAS][COLUMNAS], int num)
     }
     printf("------------------\n");
 }
+
+//---------------------------bolitas------------------------------------------------
+void SacarBolitas(int v[],int tam){
+    for(int i=0;i<tam;i++){
+        cargarVectorConAleatoriosSinRepetir(v,tam,1,90);
+    }
+}
+
+void mostrarBolitas(int v[],int tam){
+    for(int i=0;i<tam;i++){
+
+    printf("     ___________        \n");
+    printf("    |           |       \n");
+    printf("    |           |       \n");
+    printf("    |     %d    |       \n",v[i]);
+    printf("    |           |       \n");
+    printf("    |___________|       \n");
+        }
+        printf("\n\n\n");
+    }
+
 //-----------------------busqueda y marca de numeros---------------------------------
 
 int busquedaDeNumero(int mat[3][5],int n, int num){
