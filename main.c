@@ -8,6 +8,8 @@ int main()
 {
     srand(time(0));
     int cantCarton, tipoCarton, Cartones[MAXCARTONES][FILAS][COLUMNAS];
+    int tam=90;
+    int vector[90];
 
     do
     {
@@ -44,6 +46,9 @@ int main()
         }
 
     }while(cantCarton==0);
+    
+     SacarBolitas(vector,tam);
+    mostrarBolitas(vector,tam);
 
     return 0;
 }
