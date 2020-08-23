@@ -8,10 +8,10 @@
 //PRE: pide un numero minimo y un numero maximo
 //POST: devuelve un numero aleatorio entre los numeros dados
 int aleatorioEntre(int mini, int maxi);
-//PRE: pide un vector declarado sin asignar, el tamaÒo del vector, un numero minimo y un numero maximo
+//PRE: pide un vector declarado sin asignar, el tama√±o del vector, un numero minimo y un numero maximo
 //POST: le asigna al vector numeros aleatorios entre el numero minimo y maximo especificado
 void cargarVectorConAleatorios(int v[], int tam, int mini, int maxi);
-//PRE: pide un vector declarado sin asignar, el tamaÒo del vector, un numero minimo y un numero maximo
+//PRE: pide un vector declarado sin asignar, el tama√±o del vector, un numero minimo y un numero maximo
 //POST: le asigna al vector numeros aleatorios sin repetir entre el numero minimo y maximo especificado
 void cargarVectorConAleatoriosSinRepetir(int v[], int tam, int mini, int maxi);
 //PRE: Pide el vector del carton y la cantidad de cartones
@@ -23,6 +23,14 @@ void dibujarCartones(int v[MAXCARTONES][FILAS][COLUMNAS], int cant);
 //PRE: Pide el vector del carton y el numero del carton
 //POST: Dibuja en consola un carton, indicando su numero e imprimiendo el vector
 void dibujarCarton(int v[MAXCARTONES][FILAS][COLUMNAS], int num);
+
+//---------------------------------Bolitas-----------------------------------------------
+//pre:se necesita un vector sin cargar y el tama√±o del mismo
+//post:aca se pondra todos los numeros del 1 al 90 para el bingo
+void SacarBolitas(int v[],int tam);
+//pre:se necesita el anterior vector cargado 
+//post:como su nombre lo dice esta funcion mostrara los numeros del algoritmo
+void mostrarBolitas(int v[],int tam);
 
 //-----------------------busqueda y marca de numeros---------------------------------
 //PRE:Se necesita una matriz cargada y un numero (el mismo es sacado de las bolitas del bingo)
