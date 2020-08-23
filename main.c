@@ -30,10 +30,12 @@ int main()
             switch(cantCarton)
             {
                 case 1:
+                    system("cls");
                     asignarCarton(carton1);
                     dibujarCarton(carton1, 1);
                     break;
                 case 2:
+                    system("cls");
                     asignarCarton(carton1);
                     dibujarCarton(carton1, 1);
 
@@ -41,6 +43,7 @@ int main()
                     dibujarCarton(carton2, 2);
                     break;
                 case 3:
+                    system("cls");
                     asignarCarton(carton1);
                     dibujarCarton(carton1, 1);
 
@@ -52,6 +55,7 @@ int main()
                     break;
                 case 0:
                     break;
+                    system("cls");
                 default:printf("\n------error------\n");
             }
         }
@@ -61,10 +65,12 @@ int main()
             switch(cantCarton)
             {
                 case 1:
+                    system("cls");
                     asignarCarton(carton1);
                     dibujarCarton(carton1, 1);
                     break;
                 case 2:
+                    system("cls");
                     asignarCarton(carton1);
                     dibujarCarton(carton1, 1);
 
@@ -73,6 +79,7 @@ int main()
                     break;
 
                 case 3:
+                    system("cls");
                     asignarCarton(carton1);
                     dibujarCarton(carton1, 1);
 
@@ -85,7 +92,9 @@ int main()
 
                 case 0:
                     break;
-                default:printf("\n------error------\n");
+                default:
+                    system("cls");
+                    printf("\n------error------\n");
             }
         }
     }while(cantCarton==0);
