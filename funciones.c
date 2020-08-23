@@ -1,5 +1,6 @@
 #include "funciones.h"
 
+//-------------Los vectores alatorios------------------
 int aleatorioEntre(int mini, int maxi)
 {
     return mini + rand()%(maxi-mini+1);
@@ -37,7 +38,7 @@ void cargarVectorConAleatoriosSinRepetir(int v[], int tam, int mini, int maxi)
         v[i] = aleatorio;
     }
 }
-
+//----------------carga de carton y muestra del mismo----------------------------------
 void asignarCartones(int v[MAXCARTONES][FILAS][COLUMNAS], int cant)
 {
 
@@ -87,3 +88,38 @@ void dibujarCarton(int v[MAXCARTONES][FILAS][COLUMNAS], int num)
     }
     printf("------------------\n");
 }
+//-----------------------busqueda y marca de numeros---------------------------------
+
+int busquedaDeNumero(int mat[3][5],int n, int num){
+
+int posReglon=-1,posFila=-1,rpt=0;
+
+for(int i=0;i<3;i++){
+    for(int j=0;j<5;j++){
+
+    if(mat[i][j]==num){
+        posReglon=i;
+        posFila=j;
+    }
+    }
+}
+rpt=posFila*10+posReglon;
+return rpt;
+}
+
+//------------------------------------struct-----------------------------------------
+/*struct Jugador IngresarJugadorPorTeclado(struct Jugador w){
+
+    //struct Jugador j1;
+    char aux[50]=" ";
+
+    printf("\n\nCual es tu nombre?\n");
+    fflush(stdin);
+    gets(aux);
+    strcpy(w.nombreyApellido, aux);
+
+    printf("\n\nCual es tu DNI?");
+    scanf("%lf",&w.dni);
+
+    return w;
+};*/
