@@ -31,12 +31,14 @@ int main()
 
         if(tipoCarton==1)
         {
+            system("cls");
             asignarCartones(Cartones,cantCarton);
             dibujarCartones(Cartones,cantCarton);
         }
 
         if(tipoCarton==2)
         {
+            system("cls");
             asignarCartones(Cartones,cantCarton);
             dibujarCartones(Cartones,cantCarton);
         }
