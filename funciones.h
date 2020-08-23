@@ -24,4 +24,18 @@ void dibujarCartones(int v[MAXCARTONES][FILAS][COLUMNAS], int cant);
 //POST: Dibuja en consola un carton, indicando su numero e imprimiendo el vector
 void dibujarCarton(int v[MAXCARTONES][FILAS][COLUMNAS], int num);
 
+//-----------------------busqueda y marca de numeros---------------------------------
+//PRE:Se necesita una matriz cargada y un numero (el mismo es sacado de las bolitas del bingo)
+//POST:Buscara un numero en la matriz y pondra la posicion en la cual encontro dicho numero,
+int busquedaDeNumero(int mat[3][5],int n, int num);
+
+
+
+//-------------------------------------struct-----------------------------------------------
+/*struct Jugador{
+char nombreyApellido[50];
+double dni;
+};
+struct Jugador IngresarJugadorPorTeclado(struct Jugador w);*/
+
 #endif // FUNCIONES_H_INCLUDED

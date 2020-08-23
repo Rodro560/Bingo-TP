@@ -7,7 +7,7 @@
 int main()
 {
     srand(time(0));
-    int cantCarton, tipoCarton, carton1[FILAS][COLUMNAS],carton2[FILAS][COLUMNAS],carton3[FILAS][COLUMNAS];
+    int cantCarton, tipoCarton, Cartones[MAXCARTONES][FILAS][COLUMNAS];
 
     do
     {
