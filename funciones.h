@@ -4,6 +4,7 @@
 #define FILAS 3
 #define COLUMNAS 5
 #define MAXCARTONES 3
+#define BOLITAS 90
 
 //PRE: pide un numero minimo y un numero maximo
 //POST: devuelve un numero aleatorio entre los numeros dados
@@ -25,17 +26,17 @@ void dibujarCartones(int v[MAXCARTONES][FILAS][COLUMNAS], int cant);
 void dibujarCarton(int v[MAXCARTONES][FILAS][COLUMNAS], int num);
 
 //---------------------------------Bolitas-----------------------------------------------
-//pre:se necesita un vector sin cargar y el tamaño del mismo
+//pre:se necesita un vector sin cargar
 //post:aca se pondra todos los numeros del 1 al 90 para el bingo
-void SacarBolitas(int v[],int tam);
-//pre:se necesita el anterior vector cargado 
-//post:como su nombre lo dice esta funcion mostrara los numeros del algoritmo
-void mostrarBolitas(int v[],int tam);
+void generarBolitas(int v[]);
+//pre:se necesita el anterior vector cargado
+//post:como su nombre lo dice esta funcion mostrara los numeros del vector de bolitas
+void mostrarBolitas(int v[]);
 
 //-----------------------busqueda y marca de numeros---------------------------------
 //PRE:Se necesita una matriz cargada y un numero (el mismo es sacado de las bolitas del bingo)
 //POST:Buscara un numero en la matriz y pondra la posicion en la cual encontro dicho numero,
-int busquedaDeNumero(int mat[3][5],int n, int num);
+int busquedaDeNumero(int mat[][FILAS][COLUMNAS],int n, int num);
 
 
 

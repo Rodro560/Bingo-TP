@@ -1,6 +1,5 @@
 #include "funciones.h"
 
-//-------------Los vectores alatorios------------------
 int aleatorioEntre(int mini, int maxi)
 {
     return mini + rand()%(maxi-mini+1);
@@ -45,7 +44,7 @@ void asignarCartones(int v[MAXCARTONES][FILAS][COLUMNAS], int cant)
     for (int i = 0; i < cant; i++)
     {
         int tempvector[FILAS*COLUMNAS];
-        cargarVectorConAleatoriosSinRepetir(tempvector,FILAS*COLUMNAS,1,90);
+        cargarVectorConAleatoriosSinRepetir(tempvector,FILAS*COLUMNAS,1,BOLITAS);
 
         for(int j = 0; j < FILAS; j++)
         {
@@ -90,42 +89,49 @@ void dibujarCarton(int v[MAXCARTONES][FILAS][COLUMNAS], int num)
 }
 
 //---------------------------bolitas------------------------------------------------
-void SacarBolitas(int v[],int tam){
-    for(int i=0;i<tam;i++){
-        cargarVectorConAleatoriosSinRepetir(v,tam,1,90);
+void generarBolitas(int v[]){
+    for(int i = 0; i < BOLITAS; i++){
+        cargarVectorConAleatoriosSinRepetir(v,BOLITAS,1,BOLITAS);
     }
 }
 
-void mostrarBolitas(int v[],int tam){
-    for(int i=0;i<tam;i++){
+void mostrarBolitas(int v[])
+{
+    for(int i = 0; i < BOLITAS; i++)
+    {
+        printf("     ___________        \n");
+        printf("    |           |       \n");
+        printf("    |           |       \n");
 
-    printf("     ___________        \n");
-    printf("    |           |       \n");
-    printf("    |           |       \n");
-    printf("    |     %d    |       \n",v[i]);
-    printf("    |           |       \n");
-    printf("    |___________|       \n");
-        }
-        printf("\n\n\n");
+        printf("    |     ");
+        if (v[i]< 10) printf("0");
+        printf("%d    |       \n",v[i]);
+
+        printf("    |           |       \n");
+        printf("    |___________|       \n");
+    }
+    printf("\n\n\n");
     }
 
 //-----------------------busqueda y marca de numeros---------------------------------
 
-int busquedaDeNumero(int mat[3][5],int n, int num){
+int busquedaDeNumero(int mat[][FILAS][COLUMNAS],int n, int num)
+{
+    int posReglon = -1, posFila = -1, rpt = 0;
 
-int posReglon=-1,posFila=-1,rpt=0;
-
-for(int i=0;i<3;i++){
-    for(int j=0;j<5;j++){
-
-    if(mat[i][j]==num){
-        posReglon=i;
-        posFila=j;
+    for(int i=0; i < FILAS; i++)
+    {
+        for(int j=0;j<COLUMNAS;j++)
+        {
+            if(mat[n][i][j] == num)
+            {
+                posReglon = i;
+                posFila = j;
+            }
+        }
     }
-    }
-}
-rpt=posFila*10+posReglon;
-return rpt;
+    rpt = posFila*10 + posReglon;
+    return rpt;
 }
 
 //------------------------------------struct-----------------------------------------
