@@ -135,18 +135,40 @@ int busquedaDeNumero(int mat[][FILAS][COLUMNAS],int n, int num)
 }
 
 //------------------------------------struct-----------------------------------------
-/*struct Jugador IngresarJugadorPorTeclado(struct Jugador w){
+struct Jugador IngresarJugadorPorTeclado(struct Jugador j1){
 
-    //struct Jugador j1;
+    struct Carton Jcarton;
     char aux[50]=" ";
 
-    printf("\n\nCual es tu nombre?\n");
+    printf("\nIngresa tu nombre y tu apellido\n");
     fflush(stdin);
     gets(aux);
-    strcpy(w.nombreyApellido, aux);
+    strcpy(j1.nombreyApellido, aux);
 
-    printf("\n\nCual es tu DNI?");
-    scanf("%lf",&w.dni);
+    printf("\nIngresa tu DNI\n");
+    scanf("%lf",&j1.dni);
 
-    return w;
-};*/
+    j1.puntaje=0;
+
+    FILE * punteroArchivoJugador;
+    punteroArchivoJugador = fopen("ArchivoJugador", "a");
+
+    fprintf(punteroArchivoJugador, "j1");
+
+    fclose(punteroArchivoJugador);
+
+    return j1;
+};
+
+
+
+struct Carton formadorDeCartonesEnEstruct(int cartonGuardado[MAXCARTONES][FILAS][COLUMNAS],int CaCarton){
+
+    struct Carton c1;
+
+           asignarCartones(c1.Cartones,CaCarton);
+            dibujarCartones(c1.Cartones,CaCarton);
+
+            return c1;
+};
+
