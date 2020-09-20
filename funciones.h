@@ -41,10 +41,26 @@ int busquedaDeNumero(int mat[][FILAS][COLUMNAS],int n, int num);
 
 
 //-------------------------------------struct-----------------------------------------------
-/*struct Jugador{
+struct Carton{
+
+int    Cartones[MAXCARTONES][FILAS][COLUMNAS];
+
+};
+struct Jugador{
 char nombreyApellido[50];
 double dni;
+int puntaje;
+struct Carton carton;
 };
-struct Jugador IngresarJugadorPorTeclado(struct Jugador w);*/
+
+//Pre:Se necesitara tener los cartones definidos y la cantidad de los mismos
+//Post:Guardara los cartones en un struct y a su vez los mostrara
+struct Carton formadorDeCartonesEnEstruct(int cartonGuardado[MAXCARTONES][FILAS][COLUMNAS],int CaCarton);
+//Pre:Se necesitara crear una estructura cualquiera
+//Post:Se guardaran los datos del jugador
+struct Jugador IngresarJugadorPorTeclado(struct Jugador j1);
+
+void ConversorDeStructAArchivo(struct Jugador j1);
+
 
 #endif // FUNCIONES_H_INCLUDED
