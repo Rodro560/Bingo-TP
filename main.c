@@ -9,11 +9,12 @@ int main()
     srand(time(0));
     int cantCarton, tipoCarton, Cartones[MAXCARTONES][FILAS][COLUMNAS];
     int vectorBolitas[BOLITAS];
+    Jugador player = IngresarJugadorPorTeclado();
 
-    do
+   do
     {
         //las siguentes lineas son para elegir la cantidad de cartones
-        printf("Bienvenido al bingo\n\n");
+        printf("\nBienvenido al bingo\n\n");
         printf("Escribe 1 para solo usar un carton\n");
 
         for (int i = 2; i <= MAXCARTONES; i++)
@@ -30,19 +31,21 @@ int main()
         printf("Ingrese 2 para personalizar su/s carton/cartones\n");
         scanf("%d",&tipoCarton);
 
-        generarBolitas(vectorBolitas);
-        mostrarBolitas(vectorBolitas);
+        //generarBolitas(vectorBolitas);
+        //mostrarBolitas(vectorBolitas);
 
         if(tipoCarton==1)
         {
-            //system("cls");
+            system("cls");
+
             asignarCartones(Cartones,cantCarton);
             dibujarCartones(Cartones,cantCarton);
         }
 
         if(tipoCarton==2)
         {
-            //system("cls");
+            system("cls");
+
             asignarCartones(Cartones,cantCarton);
             dibujarCartones(Cartones,cantCarton);
         }
@@ -50,6 +53,7 @@ int main()
     }while(cantCarton==0);
 
 
+    conversorDeStructAArchivo(player);
+
     return 0;
 }
-
