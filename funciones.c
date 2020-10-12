@@ -115,7 +115,7 @@ void mostrarBolitas(int v[])
 
 //-----------------------busqueda y marca de numeros---------------------------------
 
-int busquedaDeNumero(int mat[][FILAS][COLUMNAS],int n, int num)
+int busquedaDeNumero(int mat[][FILAS][COLUMNAS], int num)
 {
     int posReglon = -1, posFila = -1, rpt = 0;
 
@@ -135,18 +135,88 @@ int busquedaDeNumero(int mat[][FILAS][COLUMNAS],int n, int num)
 }
 
 //------------------------------------struct-----------------------------------------
-/*struct Jugador IngresarJugadorPorTeclado(struct Jugador w){
+struct JugadorEstructura{
 
-    //struct Jugador j1;
-    char aux[50]=" ";
+char nombreyApellido[50];
+double dni;
+int puntaje;
+int Cartones[MAXCARTONES][FILAS][COLUMNAS];
+};
 
-    printf("\n\nCual es tu nombre?\n");
+struct PCEstructura{
+int puntaje;
+int Cartones[MAXCARTONES][FILAS][COLUMNAS];
+};
+
+//----------------------------------TDA------------------------------------------------
+//-------------Get---------------//
+char* getNombreYApellido(Jugador p1){
+    return p1->nombreyApellido;
+}
+
+double getDNI(Jugador p1){
+    return p1->dni;
+}
+
+int getPuntaje(Jugador p1){
+    return p1->puntaje;
+}
+
+int getCartones(Jugador p1){
+    return p1->Cartones;
+}
+
+//-------------Set---------------//
+void setNombreYApellido(Jugador p1){
+
+char aux[50]= " ";
+
+    printf("\nIngrese el nuevo nombre\n");
     fflush(stdin);
     gets(aux);
-    strcpy(w.nombreyApellido, aux);
+    strcpy(p1->nombreyApellido,aux);
+}
 
-    printf("\n\nCual es tu DNI?");
-    scanf("%lf",&w.dni);
+void setDNI(Jugador p1){
+    
+    printf("\nIngrese el nuevo DNI\n");
+    scanf("%lf"&,p1->dni);
+}
 
-    return w;
-};*/
+//------------------constructor----------------//
+Jugador IngresarJugadorPorTeclado(){
+
+    Jugador j1= malloc(sizeof(struct JugadorEstructura));
+
+    char aux[50]=" ";
+
+    printf("\nIngresa tu nombre y tu apellido\n");
+    fflush(stdin);
+    gets(aux);
+    strcpy(j1->nombreyApellido, aux);
+
+    printf("\nIngresa tu DNI\n");
+    scanf("%lf",&j1->dni);
+
+    j1->puntaje=0;
+
+    return j1;
+};
+
+//------------------destructor----------------//
+void DestruirJugador(Jugador p1){
+    free(p1);
+}
+
+//---------------------------------------Archivos---------------------------------------
+void conversorDeStructAArchivo(Jugador j){
+
+    FILE * punteroArchivoJugador;
+
+    punteroArchivoJugador = fopen("ArchivoJugador.txt", "w");
+
+    fprintf(punteroArchivoJugador, "%s\n%lf\n%d",j->nombreyApellido,j->dni,j->puntaje);
+
+    fclose(punteroArchivoJugador);
+}
+
