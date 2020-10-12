@@ -41,10 +41,38 @@ int busquedaDeNumero(int mat[][FILAS][COLUMNAS],int n, int num);
 
 
 //-------------------------------------struct-----------------------------------------------
-/*struct Jugador{
-char nombreyApellido[50];
-double dni;
-};
-struct Jugador IngresarJugadorPorTeclado(struct Jugador w);*/
+struct JugadorEstructura;
+
+struct PCEstructura;
+
+typedef struct PCEstructura * PC;
+
+typedef struct JugadorEstructura * Jugador;
+//-------------------------------------------TDA--------------------------------------------
+//----------Funciones get------------//
+char* getNombreYApellido(Jugador p1);
+double getDNI(Jugador p1);
+int getPuntaje(Jugador p1);
+int getCartones(Jugador p1);
+
+//-----------Funciones set-----------//
+void setNombreYApellido(Jugador p1);
+void setDNI(Jugador p1);
+
+//-----------constructor------------//
+//Pre:Se necesitara crear una estructura cualquiera
+//Post:Se guardaran los datos del jugador
+Jugador IngresarJugadorPorTeclado();
+
+//------------destructor-----------//
+void DestruirJugador(Jugador p1);
+
+//-------------------------------------------Archivos---------------------------------------
+
+//Pre: Se necesita un struct ya cargado
+//Post: El struct se guardadra en un archivo
+void conversorDeStructAArchivo(Jugador j);
+
+void cargarCartonAArchivo(Jugador j,int v[MAXCARTONES][FILAS][COLUMNAS], int cant);
 
 #endif // FUNCIONES_H_INCLUDED
