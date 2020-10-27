@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -31,8 +30,7 @@ int main()
         printf("Ingrese 2 para personalizar su/s carton/cartones\n");
         scanf("%d",&tipoCarton);
 
-        //generarBolitas(vectorBolitas);
-        //mostrarBolitas(vectorBolitas);
+
 
         if(tipoCarton==1)
         {
@@ -50,10 +48,18 @@ int main()
             dibujarCartones(Cartones,cantCarton);
         }
 
+        menuDeEmergencia(player);
+
     }while(cantCarton==0);
+
+    generarBolitas(vectorBolitas);
+    mostrarBolitas(vectorBolitas);
+
+
 
 
     conversorDeStructAArchivo(player);
 
     return 0;
 }
+
