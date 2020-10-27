@@ -1,4 +1,6 @@
 #include "funciones.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 int aleatorioEntre(int mini, int maxi)
 {
@@ -111,11 +113,12 @@ void mostrarBolitas(int v[])
         printf("    |___________|       \n");
     }
     printf("\n\n\n");
+
     }
 
 //-----------------------busqueda y marca de numeros---------------------------------
 
-int busquedaDeNumero(int mat[][FILAS][COLUMNAS], int num)
+int busquedaDeNumero(int mat[][FILAS][COLUMNAS], int num[])
 {
     int posReglon = -1, posFila = -1, rpt = 0;
 
@@ -123,7 +126,7 @@ int busquedaDeNumero(int mat[][FILAS][COLUMNAS], int num)
     {
         for(int j=0;j<COLUMNAS;j++)
         {
-            if(mat[n][i][j] == num)
+            if(mat[][i][j] == num)
             {
                 posReglon = i;
                 posFila = j;
@@ -134,7 +137,53 @@ int busquedaDeNumero(int mat[][FILAS][COLUMNAS], int num)
     return rpt;
 }
 
+void marcarNumero(int mat[][FILAS][COLUMNAS], int num[]){
+    for(int i=0; i<90; i++){
+        rpt=busquedaDeNumero(mat,num[i]);
+        
+    }
+}
+
+void menuDeEmergencia(Jugador juga){
+    int rpt=0, opc=0;
+
+    printf("\Te equivocaste en ingresar tus datos?");
+    printf("\n1.Me equivoque");
+    printf("\n2.No me equivoque\n");
+    scanf("%d",&rpt);
+
+    if (rpt==1){
+        do{
+            system("cls");
+            printf("\nEn que te equivocaste?\n\n ");
+            printf("\n1.Me equivoque en mi nombre");
+            printf("\n2.Me equivoque en mi DNI");
+            printf("\n0.Para salir\n");
+            scanf("%d",&opc);
+
+        switch(opc){
+            case 1:
+                system("cls");
+                getNombreYApellido(juga);
+                setNombreYApellido(juga);
+                break;
+            case 2:
+                system("cls");
+                getDNI(juga);
+                setDNI(juga);
+                break;
+            case 0:
+                break;
+            default:
+                system("cls");
+                printf("La opcion ingresada es incorrecta");
+                break;
+        }
+        }while(opc!=0);
+    }
+}
 //------------------------------------struct-----------------------------------------
+
 struct JugadorEstructura{
 
 char nombreyApellido[50];
@@ -178,9 +227,9 @@ char aux[50]= " ";
 }
 
 void setDNI(Jugador p1){
-    
+
     printf("\nIngrese el nuevo DNI\n");
-    scanf("%lf"&,p1->dni);
+    scanf("%lf",&p1->dni);
 }
 
 //------------------constructor----------------//
