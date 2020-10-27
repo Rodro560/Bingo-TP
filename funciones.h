@@ -25,6 +25,8 @@ void dibujarCartones(int v[MAXCARTONES][FILAS][COLUMNAS], int cant);
 //POST: Dibuja en consola un carton, indicando su numero e imprimiendo el vector
 void dibujarCarton(int v[MAXCARTONES][FILAS][COLUMNAS], int num);
 
+
+
 //---------------------------------Bolitas-----------------------------------------------
 //pre:se necesita un vector sin cargar
 //post:aca se pondra todos los numeros del 1 al 90 para el bingo
@@ -36,9 +38,10 @@ void mostrarBolitas(int v[]);
 //-----------------------busqueda y marca de numeros---------------------------------
 //PRE:Se necesita una matriz cargada y un numero (el mismo es sacado de las bolitas del bingo)
 //POST:Buscara un numero en la matriz y pondra la posicion en la cual encontro dicho numero,
-int busquedaDeNumero(int mat[][FILAS][COLUMNAS],int n, int num);
-
-
+int busquedaDeNumero(int mat[][FILAS][COLUMNAS], int num[]);
+//
+//
+void marcarNumero(int mat[][FILAS][COLUMNAS], int num[]);
 
 //-------------------------------------struct-----------------------------------------------
 struct JugadorEstructura;
@@ -74,5 +77,9 @@ void DestruirJugador(Jugador p1);
 void conversorDeStructAArchivo(Jugador j);
 
 void cargarCartonAArchivo(Jugador j,int v[MAXCARTONES][FILAS][COLUMNAS], int cant);
+
+void menuDeEmergencia(Jugador juga);
+
+
 
 #endif // FUNCIONES_H_INCLUDED
