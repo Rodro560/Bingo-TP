@@ -241,7 +241,7 @@ void comprobacionesPC(Jugador pc, int cantidadC, int * linea, int * columna, int
     if ((comprobarLineas(pc, cantidadC) == 1) && *linea == 0)
     {
         printf("La pc canto linea! \n");
-        printf("+20 puntos para la pc\n");
+        printf("+20 puntos para la pc\n\n");
         pc->puntaje += 20;
         *linea = 1;
     }
@@ -249,7 +249,7 @@ void comprobacionesPC(Jugador pc, int cantidadC, int * linea, int * columna, int
     if ((comprobarColumnas(pc, cantidadC) == 1) && *columna == 0)
     {
         printf("La pc canto columna! \n");
-        printf("+10 puntos para la pc\n");
+        printf("+10 puntos para la pc\n\n");
         pc->puntaje += 10;
         *columna = 1;
     }
@@ -257,7 +257,7 @@ void comprobacionesPC(Jugador pc, int cantidadC, int * linea, int * columna, int
     if ((comprobarBingos(pc, cantidadC) == 1) && *bingo == 0)
     {
         printf("La pc canto bingo! \n");
-        printf("+70 puntos para la pc\n");
+        printf("+70 puntos para la pc\n\n");
         pc->puntaje += 70;
         *bingo = 1;
     }
@@ -271,6 +271,8 @@ void mostrarPuntuaciones(Jugador player, Jugador pc)
 
 void jugarBingo(Jugador player, Jugador pc, int cantidadC, int bolitas[])
 {
+    system("cls");
+
     int bolitasSacadas = 0;
     int linea = 0;
     int columna = 0;
@@ -372,10 +374,13 @@ void jugarBingo(Jugador player, Jugador pc, int cantidadC, int bolitas[])
                 marcarNumeroEnCartones(pc, cantidadC, bolitas[bolitasSacadas]);
                 comprobacionesPC(pc, cantidadC, lineaPtr, columnaPtr, bingoPtr);
 
-                bolitasSacadas++;
-                mostrarBolita(bolitas, bolitasSacadas);
-                marcarNumeroEnCartones(player, cantidadC, bolitas[bolitasSacadas]);
-                dibujarCartones(player, cantidadC);
+                if (bingo == 0)//
+                {
+                    bolitasSacadas++;
+                    mostrarBolita(bolitas, bolitasSacadas);
+                    marcarNumeroEnCartones(player, cantidadC, bolitas[bolitasSacadas]);
+                    dibujarCartones(player, cantidadC);
+                }
             break;
 
             default:

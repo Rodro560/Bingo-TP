@@ -143,3 +143,27 @@ int pedirMetodoDeGeneracionDeCarton()
 
     return metodo;
 }
+
+void mostrarRanking()
+{
+    FILE * punteroAUnArchivo;
+    punteroAUnArchivo = fopen("ranking.txt", "r");
+
+    printf("Puntuaciones anteriores: \n\n");
+
+    while (!feof(punteroAUnArchivo))//feof devuelve si ya se llego al final del archivo (eof)
+    {
+        char aux[50] = " ";
+        fgets(aux, 50, punteroAUnArchivo);
+
+        char aux2[50] = " ";
+        fgets(aux2, 50, punteroAUnArchivo);
+
+        //solo mostramos si el nombre no esta vacio
+        if (aux[0] != ' ') printf("Jugador: %s  --  Puntaje: %s\n", aux, aux2);
+    }
+
+    printf("GRACIAS POR JUGAR!\n");
+    //cerrar
+    fclose(punteroAUnArchivo);
+}

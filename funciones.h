@@ -44,4 +44,6 @@ void marcarNumero(int mat[][FILAS][COLUMNAS], int num[]);
 int pedirCantidadDeCartones();
 int pedirMetodoDeGeneracionDeCarton();
 
+void mostrarRanking();
+
 #endif // FUNCIONES_H_INCLUDED

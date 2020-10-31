@@ -22,8 +22,6 @@ int main()
     tipoCarton = pedirMetodoDeGeneracionDeCarton();
 
     crearCartones(player, pc, tipoCarton, cantCarton);
-    dibujarCartones(player,cantCarton);//debug
-    dibujarCartones(pc,cantCarton);//debug
 
     //llenamos el vector que tendra las bolitas que iran saliendo
     generarBolitas(vectorBolitas);
@@ -31,8 +29,7 @@ int main()
     //iniciamos el juego
     jugarBingo(player, pc, cantCarton, vectorBolitas);
 
-
-    //conversorDeStructAArchivo(player);
+    mostrarRanking();
 
     return 0;
 }
