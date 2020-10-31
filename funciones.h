@@ -6,6 +6,7 @@
 #define MAXCARTONES 3
 #define BOLITAS 90
 
+//----------------------Asignar Cartones------------------------------
 //PRE: pide un numero minimo y un numero maximo
 //POST: devuelve un numero aleatorio entre los numeros dados
 int aleatorioEntre(int mini, int maxi);
@@ -15,11 +16,6 @@ void cargarVectorConAleatorios(int v[], int tam, int mini, int maxi);
 //PRE: pide un vector declarado sin asignar, el tamaño del vector, un numero minimo y un numero maximo
 //POST: le asigna al vector numeros aleatorios sin repetir entre el numero minimo y maximo especificado
 void cargarVectorConAleatoriosSinRepetir(int v[], int tam, int mini, int maxi);
-//PRE: Pide el vector del carton y la cantidad de cartones
-//POST: utiliza la funcion de cargarVectorConAleatoriosSinRepetir para llenar dicho vector
-void asignarCartones(int v[MAXCARTONES][FILAS][COLUMNAS], int cant);
-
-
 
 //---------------------------------Bolitas-----------------------------------------------
 //pre:se necesita un vector sin cargar
@@ -28,22 +24,18 @@ void generarBolitas(int v[]);
 //pre:se necesita el anterior vector cargado
 //post:como su nombre lo dice esta funcion mostrara la bolita indicada en el vector de bolitas
 void mostrarBolita(int v[], int bolita);
-//pre:se necesita el anterior vector cargado
-//post:como su nombre lo dice esta funcion mostrara los numeros del vector de bolitas
-void mostrarBolitas(int v[]);
 
-//-----------------------busqueda y marca de numeros---------------------------------
-//PRE:Se necesita una matriz cargada y un numero (el mismo es sacado de las bolitas del bingo)
-//POST:Buscara un numero en la matriz y pondra la posicion en la cual encontro dicho numero,
-int busquedaDeNumero(int mat[][FILAS][COLUMNAS], int num[]);
-//
-//
-void marcarNumero(int mat[][FILAS][COLUMNAS], int num[]);
-
-//Funciones y procedimientos para el menú
+//-----------------Funciones y procedimientos para el menú----------------------------
+//Pre: Esta funcion se activara despues de que ingrese el usuario
+//Post: Es un menu que te permite elegir la cantidad de cartones con los que vas a jugar
 int pedirCantidadDeCartones();
+//Pre: Esta funcion se activara despues de que ingrese el usuario y la funcion anterior
+//Post: Es un menu que te permite elegir como vas a llenar tus cartones para jugar
 int pedirMetodoDeGeneracionDeCarton();
 
+//-----------------------puntos--------------------------------
+//Pre: Se usa al final en el main
+//Post: Mostrara los puntos conseguidos del jugador
 void mostrarRanking();
 
 #endif // FUNCIONES_H_INCLUDED
