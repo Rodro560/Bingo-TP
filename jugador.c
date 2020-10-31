@@ -233,6 +233,33 @@ int comprobarBingos(Jugador player, int cant)
     return encontrado;
 }
 
+void comprobacionesPC(Jugador pc, int cantidadC, int * linea, int * columna, int * bingo)
+{
+    if ((comprobarLineas(pc, cantidadC) == 1) && *linea == 0)
+    {
+        printf("La pc canto linea! \n");
+        printf("+20 puntos para la pc\n");
+        pc->puntaje += 20;
+        *linea = 1;
+    }
+
+    if ((comprobarColumnas(pc, cantidadC) == 1) && *columna == 0)
+    {
+        printf("La pc canto columna! \n");
+        printf("+10 puntos para la pc\n");
+        pc->puntaje += 10;
+        *columna = 1;
+    }
+
+    if ((comprobarBingos(pc, cantidadC) == 1) && *bingo == 0)
+    {
+        printf("La pc canto bingo! \n");
+        printf("+70 puntos para la pc\n");
+        pc->puntaje += 70;
+        *bingo = 1;
+    }
+}
+
 void jugarBingo(Jugador player, Jugador pc, int cantidadC, int bolitas[])
 {
     int bolitasSacadas = 0;
@@ -240,6 +267,10 @@ void jugarBingo(Jugador player, Jugador pc, int cantidadC, int bolitas[])
     int columna = 0;
     int bingo = 0;
     int opc = 0;
+
+    int * lineaPtr = &linea;
+    int * columnaPtr = &columna;
+    int * bingoPtr = &bingo;
 
     mostrarBolita(bolitas, bolitasSacadas);
     while (bingo == 0)
@@ -303,14 +334,18 @@ void jugarBingo(Jugador player, Jugador pc, int cantidadC, int bolitas[])
                     printf("Felicitaciones, hiciste bingo! \n");
                     printf("+70 puntos\n");
                     player->puntaje += 70;
-                    bingo = 0;
+                    bingo = 1;
                 }else{
-                    printf("No hiciste ninguna columna\n");
+                    printf("No hiciste bingo\n");
                 }
             break;
 
             case 4://sacar bolilla
                 system("cls");
+
+                marcarNumeroEnCartones(pc, cantidadC, bolitas[bolitasSacadas]);
+                comprobacionesPC(pc, cantidadC, lineaPtr, columnaPtr, bingoPtr);
+
                 bolitasSacadas++;
                 mostrarBolita(bolitas, bolitasSacadas);
                 marcarNumeroEnCartones(player, cantidadC, bolitas[bolitasSacadas]);
