@@ -295,7 +295,7 @@ void jugarBingo(Jugador player, Jugador pc, int cantidadC, int bolitas[])
         printf("3) Cantar bingo\n");
         printf("4) Mostrar cartones de la PC\n");
         printf("5) Mostrar puntaje\n");
-        printf("4) Sacar nueva bolilla\n");
+        printf("6) Sacar nueva bolilla\n");
 
         scanf("%d",&opc);
 
