@@ -35,7 +35,7 @@ void destruirJugador(Jugador p1);
 //Post: El struct se guardadra en un archivo
 void conversorDeStructAArchivo(Jugador j);
 
-void cargarCartonAArchivo(Jugador j,int v[MAXCARTONES][FILAS][COLUMNAS], int cant);
+void guardarPuntuacionEnArchivo(Jugador j);
 
 void menuDeEmergencia(Jugador juga);
 

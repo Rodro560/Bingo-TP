@@ -263,6 +263,12 @@ void comprobacionesPC(Jugador pc, int cantidadC, int * linea, int * columna, int
     }
 }
 
+void mostrarPuntuaciones(Jugador player, Jugador pc)
+{
+    printf("Puntos del jugador: %d \n", player->puntaje);
+    printf("Puntos de la pc: %d \n", pc->puntaje);
+}
+
 void jugarBingo(Jugador player, Jugador pc, int cantidadC, int bolitas[])
 {
     int bolitasSacadas = 0;
@@ -287,6 +293,8 @@ void jugarBingo(Jugador player, Jugador pc, int cantidadC, int bolitas[])
         printf("1) Cantar linea\n");
         printf("2) Cantar columna\n");
         printf("3) Cantar bingo\n");
+        printf("4) Mostrar cartones de la PC\n");
+        printf("5) Mostrar puntaje\n");
         printf("4) Sacar nueva bolilla\n");
 
         scanf("%d",&opc);
@@ -344,7 +352,21 @@ void jugarBingo(Jugador player, Jugador pc, int cantidadC, int bolitas[])
                 }
             break;
 
-            case 4://sacar bolilla
+            case 4://mostrar cartones de la pc
+                system("cls");
+
+                printf("Estos son los cartones de la PC:\n");
+                dibujarCartones(pc, cantidadC);
+            break;
+
+            case 5://mostrar puntajes
+                system("cls");
+
+                mostrarPuntuaciones(player, pc);
+
+            break;
+
+            case 6://sacar bolilla
                 system("cls");
 
                 marcarNumeroEnCartones(pc, cantidadC, bolitas[bolitasSacadas]);
@@ -362,15 +384,54 @@ void jugarBingo(Jugador player, Jugador pc, int cantidadC, int bolitas[])
             break;
         }
     }
+
+    //multiplicamos los puntos por el resto de bolitas a sacar
+    player->puntaje = player->puntaje * (BOLITAS - bolitasSacadas + 1);
+    pc->puntaje = pc->puntaje * (BOLITAS - bolitasSacadas + 1);
+
+    printf("Fin del juego\n");
+    if (player->puntaje > pc->puntaje)
+    {
+        printf("Felicitaciones, ganaste!\n");
+    }else{
+        printf("Gano la pc!\n");
+    }
+
+    mostrarPuntuaciones(player, pc);
+
+    printf("Desea guardar su puntuacion en el ranking? (s/n)\n");
+
+    char aux[1];
+    int continuar = 0;
+
+    while(continuar == 0)
+    {
+        fflush(stdin);
+        gets(aux);
+
+        if (aux[0] == 's' || aux[0] == 'S')
+        {
+            guardarPuntuacionEnArchivo(player);
+            printf("Gracias por jugar!\n");
+            continuar = 1;
+        }else if (aux[0] == 'n' || aux[0] == 'n')
+        {
+            //mostrar ranking
+            continuar = 1;
+        }else{
+            printf("Opcion incorrecta, escriba s para SI o n para NO\n");
+        }
+    }
+
 }
 //---------------------------------------Archivos---------------------------------------
-void conversorDeStructAArchivo(Jugador j){
+void guardarPuntuacionEnArchivo(Jugador j){
 
     FILE * punteroArchivoJugador;
 
-    punteroArchivoJugador = fopen("ArchivoJugador.txt", "w");
+    punteroArchivoJugador = fopen("ranking.txt", "a");
 
-    fprintf(punteroArchivoJugador, "%s\n%lf\n%d",j->nombreyApellido,j->dni,j->puntaje);
+    fprintf(punteroArchivoJugador, "%s\n%d\n",j->nombreyApellido,j->puntaje);
 
     fclose(punteroArchivoJugador);
 }
