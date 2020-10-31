@@ -2,63 +2,37 @@
 #include <stdlib.h>
 #include <time.h>
 #include "funciones.h"
+#include "jugador.h"
 
 int main()
 {
     srand(time(0));
-    int cantCarton, tipoCarton, Cartones[MAXCARTONES][FILAS][COLUMNAS];
-    int vectorBolitas[BOLITAS];
-    Jugador player = IngresarJugadorPorTeclado();
+    int cantCarton, tipoCarton, vectorBolitas[BOLITAS];
+    Jugador player = ingresarJugadorPorTeclado();
+    //al jugador pc no se le pide nombre ni dni
+    //usa el mismo struct que el jugador pero con valores predefinidos
+    Jugador pc = crearJugadorPC();
+    menuDeEmergencia(player);
+    mostrarJugador(player);//debug
 
-   do
-    {
-        //las siguentes lineas son para elegir la cantidad de cartones
-        printf("\nBienvenido al bingo\n\n");
-        printf("Escribe 1 para solo usar un carton\n");
+    printf("\nBienvenido al bingo\n\n");
+    //la siguente linea es para elegir la cantidad de cartones
+    cantCarton = pedirCantidadDeCartones();
+    //las siguente linea es para elegir como van a cargar el carton
+    tipoCarton = pedirMetodoDeGeneracionDeCarton();
 
-        for (int i = 2; i <= MAXCARTONES; i++)
-        {
-            printf("Escribe %d para usar %d cartones\n", i, i);
-        }
+    crearCartones(player, pc, tipoCarton, cantCarton);
+    dibujarCartones(player,cantCarton);//debug
+    dibujarCartones(pc,cantCarton);//debug
 
-        //printf("Una ves formado tu carton presiona 0\n");
-        scanf("%d",&cantCarton);
-
-        //las siguentes lineas son para elegir como van a cargar el carton
-        printf("\nQue tipo de carton quieres?\n");
-        printf("\nIngrese 1 para tomar un/unos carton/cartones alatorio/s\n");
-        printf("Ingrese 2 para personalizar su/s carton/cartones\n");
-        scanf("%d",&tipoCarton);
-
-
-
-        if(tipoCarton==1)
-        {
-            system("cls");
-
-            asignarCartones(Cartones,cantCarton);
-            dibujarCartones(Cartones,cantCarton);
-        }
-
-        if(tipoCarton==2)
-        {
-            system("cls");
-
-            asignarCartones(Cartones,cantCarton);
-            dibujarCartones(Cartones,cantCarton);
-        }
-
-        menuDeEmergencia(player);
-
-    }while(cantCarton==0);
-
+    //llenamos el vector que tendra las bolitas que iran saliendo
     generarBolitas(vectorBolitas);
-    mostrarBolitas(vectorBolitas);
+
+    //iniciamos el juego
+    jugarBingo(player, pc, cantCarton, vectorBolitas);
 
 
-
-
-    conversorDeStructAArchivo(player);
+    //conversorDeStructAArchivo(player);
 
     return 0;
 }
