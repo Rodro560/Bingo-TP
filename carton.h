@@ -4,6 +4,8 @@
 struct CartonEstructura;
 typedef struct CartonEstructura * Carton;
 
+//Pre: Necesita un struct carton
+//Post: Iniciara los cartones en 0
 Carton iniciarCarton();
 
 //--------------------------Carga de Cartones-------------------------------
@@ -26,7 +28,7 @@ int buscarNumeroEnCarton(Carton cart, int num);
 //Pre: Precisa el carton, el numero y un puntero hacia un vector, 
 //ademas esta funcion solo se llama despues de comprobar con la funcion de buscarNumeroEnCarton si encontro un numero
 //Post: Escribe la posicion del numero a buscar en el vector al que apunta el puntero
-void buscarPosicionEnCarton(Carton cart, int num, int *posicion)
+void buscarPosicionEnCarton(Carton cart, int num, int *posicion);
 //Pre: Precisa de un carton cargado y que el numero coinsida con un numero del carton antes mencionado, ademas de las dos anteriores funciones
 //Post: Pondra "xx" si todo lo anterior esta correcto
 int marcarNumeroEnCarton(Carton cart, int num);
@@ -40,7 +42,7 @@ int comprobarLinea(Carton cart);
 int comprobarColumna(Carton cart);
 //Pre: necesita que el jugador cante bingo
 //Post: Comprobara si el bingo cantado es correcta o no 
-int comprobarBingo(Carton cart)
+int comprobarBingo(Carton cart);
 
 
 
