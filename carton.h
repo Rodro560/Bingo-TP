@@ -13,6 +13,8 @@ void dibujarCarton(Carton cart, int num);
 int comprobarLinea(Carton cart);
 int comprobarColumna(Carton cart);
 
+int marcarNumeroEnCarton(Carton cart, int num);
+
 void cargarCartonPorTeclado(Carton cart);
 int buscarNumeroEnCarton(Carton cart, int num);
 #endif // CARTON_H_INCLUDED

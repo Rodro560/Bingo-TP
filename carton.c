@@ -113,12 +113,15 @@ void buscarPosicionEnCarton(Carton cart, int num, int *posicion)
     }
 }
 
-void marcarNumeroEnCarton(Carton cart, int num){
+int marcarNumeroEnCarton(Carton cart, int num){
     if (buscarNumeroEnCarton(cart, num) == 1)
     {
         int posicion[2];
         buscarPosicionEnCarton(cart, num, posicion);
         cart->marcas[posicion[0]] [posicion[1]] = 1;
+        return 1;
+    }else{
+        return 0;
     }
 }
 

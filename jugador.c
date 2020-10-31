@@ -184,7 +184,10 @@ void marcarNumeroEnCartones(Jugador player, int cant, int num)
 {
     for (int i = 0; i < cant; i++)
     {
-        marcarNumeroEnCarton(player->cartones[i], num);
+        if (marcarNumeroEnCarton(player->cartones[i], num) == 1)
+        {
+            if (player->dni != 0) printf("Marcaste numero en el carton %d!\n", i + 1);
+        }
     }
 }
 
@@ -273,9 +276,10 @@ void jugarBingo(Jugador player, Jugador pc, int cantidadC, int bolitas[])
     int * bingoPtr = &bingo;
 
     mostrarBolita(bolitas, bolitasSacadas);
+    marcarNumeroEnCartones(player, cantidadC, bolitas[bolitasSacadas]);
+
     while (bingo == 0)
     {
-        marcarNumeroEnCartones(player, cantidadC, bolitas[bolitasSacadas]);
         //llenamos el vector que tendra las bolitas que iran saliendo
 
 
