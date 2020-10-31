@@ -74,28 +74,9 @@ void mostrarBolita(int v[], int bolita)
 }
 
 
-//-----------------------busqueda y marca de numeros---------------------------------
 
-int busquedaDeNumero(int mat[][FILAS][COLUMNAS], int num[])
-{
-    int posReglon = -1, posFila = -1, rpt = 0;
 
-    for(int i=0; i < FILAS; i++)
-    {
-        for(int j=0;j<COLUMNAS;j++)
-        {
-            if(mat[1][i][j] == num)
-            {
-                posReglon = i;
-                posFila = j;
-            }
-        }
-    }
-    rpt = posFila*10 + posReglon;
-    return rpt;
-}
-
-//Funciones y procedimientos para el menú
+//Funciones y procedimientos para el menÃº
 int pedirCantidadDeCartones()
 {
     int cantidad = MAXCARTONES + 1;//cantidad inicial invalida para evitar problemas en caso de que falle el scanf
